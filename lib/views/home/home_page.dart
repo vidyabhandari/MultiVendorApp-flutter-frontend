@@ -9,6 +9,8 @@ import 'package:my_firstapp/views/home/all_fastest_foods_page.dart';
 import 'package:my_firstapp/views/home/all_nearby_restaurants.dart';
 import 'package:my_firstapp/views/home/recommendation_page.dart';
 import 'package:my_firstapp/views/home/widgets/category_list.dart';
+import 'package:my_firstapp/views/home/widgets/food_list.dart';
+import 'package:my_firstapp/views/home/widgets/nearby_restaurants_list.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -36,6 +38,7 @@ class HomePage extends StatelessWidget {
                   );
                 },
               ),
+              const NearbyRestaurants(),
               Heading(
                 text: "Try Something New",
                 onTap: () {
@@ -46,6 +49,8 @@ class HomePage extends StatelessWidget {
                   );
                 },
               ),
+
+              const FoodList(),
               Heading(
                 text: "Food closer to you",
                 onTap: () {
@@ -56,6 +61,7 @@ class HomePage extends StatelessWidget {
                   );
                 },
               ),
+              const FoodList(),
             ],
           ),
         ),
