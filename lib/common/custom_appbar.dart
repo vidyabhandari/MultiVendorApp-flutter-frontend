@@ -38,7 +38,7 @@ class CustomAppbar extends StatelessWidget {
                     children: [
                       ReusableText(
                         text: "Deliver to",
-                        style: appStyle(13, kSecondary, FontWeight.w600),
+                        style: appStyle(13, kSecondary, FontWeight.w600, 0),
                       ),
                       SizedBox(
                         width:
@@ -46,7 +46,7 @@ class CustomAppbar extends StatelessWidget {
                         child: Text(
                           "data",
                           overflow: TextOverflow.ellipsis,
-                          style: appStyle(13, kGrayLight, FontWeight.normal),
+                          style: appStyle(13, kGrayLight, FontWeight.normal, 0),
                         ),
                       ),
                     ],

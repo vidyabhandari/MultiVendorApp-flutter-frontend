@@ -18,7 +18,7 @@ class AllCategories extends StatelessWidget {
         backgroundColor: kOffWhite,
         title: ReusableText(
           text: "Categories",
-          style: appStyle(12, kGray, FontWeight.w600),
+          style: appStyle(12, kGray, FontWeight.w600, 0),
         ),
       ),
       body: BackGroundContainer(

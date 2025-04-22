@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_firstapp/common/app_style.dart';
 import 'package:my_firstapp/common/reusable_text.dart';
 import 'package:my_firstapp/constants/constants.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class RestaurantWidget extends StatelessWidget {
   const RestaurantWidget({
@@ -85,19 +84,19 @@ class RestaurantWidget extends StatelessWidget {
                   children: [
                     ReusableText(
                       text: title,
-                      style: appStyle(12, kDark, FontWeight.w500),
+                      style: appStyle(12, kDark, FontWeight.w500, 0),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         ReusableText(
                           text: 'Delivery time',
-                          style: appStyle(9, kGray, FontWeight.w500),
+                          style: appStyle(9, kGray, FontWeight.w500, 0),
                         ),
 
                         ReusableText(
                           text: time,
-                          style: appStyle(9, kDark, FontWeight.w500),
+                          style: appStyle(9, kDark, FontWeight.w500, 0),
                         ),
                       ],
                     ),
@@ -115,7 +114,7 @@ class RestaurantWidget extends StatelessWidget {
                         SizedBox(width: 10.w),
                         ReusableText(
                           text: "+ $rating reviews and ratings",
-                          style: appStyle(9, kGray, FontWeight.w500),
+                          style: appStyle(9, kGray, FontWeight.w500, 0),
                         ),
                       ],
                     ),

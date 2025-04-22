@@ -18,7 +18,7 @@ class AllNearByRestaurants extends StatelessWidget {
         backgroundColor: kOffWhite,
         title: ReusableText(
           text: "Nearby Restaurants",
-          style: appStyle(13, kGray, FontWeight.w600),
+          style: appStyle(13, kGray, FontWeight.w600, 0),
         ),
       ),
       body: BackGroundContainer(

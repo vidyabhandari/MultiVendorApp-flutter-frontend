@@ -29,7 +29,7 @@ class CategoryTile extends StatelessWidget {
       ),
       title: ReusableText(
         text: category['title'],
-        style: appStyle(12, kGray, FontWeight.normal),
+        style: appStyle(12, kGray, FontWeight.normal, 0),
       ),
       trailing: Icon(Icons.arrow_forward_ios_rounded, color: kGray, size: 15.r),
     );

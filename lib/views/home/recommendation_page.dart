@@ -14,7 +14,7 @@ class RecommendationsPage extends StatelessWidget {
         backgroundColor: kOffWhite,
         title: ReusableText(
           text: "Recommendations",
-          style: appStyle(13, kGray, FontWeight.w600),
+          style: appStyle(13, kGray, FontWeight.w600, 0),
         ),
       ),
       body: const Center(child: Text("All Recommendations")),

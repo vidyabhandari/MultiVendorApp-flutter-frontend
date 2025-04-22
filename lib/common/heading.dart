@@ -22,7 +22,7 @@ class Heading extends StatelessWidget {
             padding: EdgeInsets.only(top: 10.h),
             child: ReusableText(
               text: text,
-              style: appStyle(16, kDark, FontWeight.bold),
+              style: appStyle(16, kDark, FontWeight.bold, 0),
             ),
           ),
 

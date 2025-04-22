@@ -13,7 +13,7 @@ class AllFastestFoodsPage extends StatelessWidget {
         elevation: 0.3,
         backgroundColor: kOffWhite,
         title: ReusableText(text: "All FastestFoods", 
-        style: appStyle(13, kGray, FontWeight.w600)),
+        style: appStyle(13, kGray, FontWeight.w600,0)),
       ),
       body: const Center(child: Text("All Fastest Food")),
     );
