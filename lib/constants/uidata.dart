@@ -172,7 +172,7 @@ List<Map<String, dynamic>> foods = [
       {"id": 5, "title": "Sugar", "price": "0.50"},
     ],
     "imageUrl":
-        "https://d326fntlu7tb1e.cloudfront.net/uploads/5c2a9ca8-eb07-400b-b8a6-2acfab2a9ee2-image001.webp",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqoexBaTHidq6TqIsZBec9UKXz44H_yiMVxA&s",
     "__v": 0,
     "category": "6531209dbbe4998e90af3fef",
     "time": "35 min",
@@ -198,7 +198,7 @@ List<Map<String, dynamic>> foods = [
       {"id": 5, "title": "Pasta", "price": "3.00"},
     ],
     "imageUrl":
-        "https://d326fntlu7tb1e.cloudfront.net/uploads/5c2a9ca8-eb07-400b-b8a6-2acfab2a9ee2-image001.webp",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqoexBaTHidq6TqIsZBec9UKXz44H_yiMVxA&s",
     "__v": 2,
     "category": "6531209dbbe4998e90af3fef",
     "time": "20 min",
@@ -224,7 +224,7 @@ List<Map<String, dynamic>> foods = [
       {"id": 5, "title": "Vinaigrette", "price": "0.50"},
     ],
     "imageUrl":
-        "https://d326fntlu7tb1e.cloudfront.net/uploads/5c2a9ca8-eb07-400b-b8a6-2acfab2a9ee2-image001.webp",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqoexBaTHidq6TqIsZBec9UKXz44H_yiMVxA&s",
     "__v": 0,
     "category": "6531209dbbe4998e90af3fef",
     "time": "55 min",
@@ -248,7 +248,7 @@ List<Map<String, dynamic>> foods = [
       {"id": 3, "title": "Ketch up", "price": "0.50"},
     ],
     "imageUrl":
-        "https://d326fntlu7tb1e.cloudfront.net/uploads/5c2a9ca8-eb07-400b-b8a6-2acfab2a9ee2-image001.webp",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqoexBaTHidq6TqIsZBec9UKXz44H_yiMVxA&s",
     "__v": 0,
     "category": "6531209dbbe4998e90af3fef",
     "time": "30 min",
@@ -274,7 +274,7 @@ List<Map<String, dynamic>> foods = [
       {"id": 5, "title": "Ice", "price": "0.50"},
     ],
     "imageUrl":
-        "https://d326fntlu7tb1e.cloudfront.net/uploads/5c2a9ca8-eb07-400b-b8a6-2acfab2a9ee2-image001.webp",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqoexBaTHidq6TqIsZBec9UKXz44H_yiMVxA&s",
     "__v": 0,
     "category": "6531209dbbe4998e90af3fef",
     "time": "25 min",
@@ -306,7 +306,7 @@ List<Map<String, dynamic>> foods = [
       {"id": 5, "title": "Barbecue Sauce", "price": "1.00"},
     ],
     "imageUrl":
-        "https://d326fntlu7tb1e.cloudfront.net/uploads/5c2a9ca8-eb07-400b-b8a6-2acfab2a9ee2-image001.webp",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqoexBaTHidq6TqIsZBec9UKXz44H_yiMVxA&s",
     "__v": 0,
     "category": "6531209dbbe4998e90af3fef",
     "time": "45 min",
