@@ -65,11 +65,11 @@ List<dynamic> restaurants = [
     "title": "Lapisara Eatery",
     "time": "6:00am - 9:00pm",
     "imageUrl":
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqoexBaTHidq6TqIsZBec9UKXz44H_yiMVxA&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRBauJjU5-TudgXFIyxUI4GYXEA3Zxb2ZRvA&s",
     "owner": "fdfsdfsdfs",
     "code": "41007428",
     "logoUrl":
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqoexBaTHidq6TqIsZBec9UKXz44H_yiMVxA&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRBauJjU5-TudgXFIyxUI4GYXEA3Zxb2ZRvA&s",
     "rating": 5,
     "ratingCount": "6765",
     "coords": {
@@ -109,11 +109,11 @@ List<dynamic> restaurants = [
     "title": "La Foods",
     "time": "6:00am - 9:00pm",
     "imageUrl":
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqoexBaTHidq6TqIsZBec9UKXz44H_yiMVxA&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTog1isi9qdc9fH2ayboEeXVOqjBdX9qUcAsA&s",
     "owner": "fgdgdfgd",
     "code": "41007428",
     "logoUrl":
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqoexBaTHidq6TqIsZBec9UKXz44H_yiMVxA&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTog1isi9qdc9fH2ayboEeXVOqjBdX9qUcAsA&s",
     "rating": 5,
     "ratingCount": "5666",
     "coords": {
@@ -131,11 +131,11 @@ List<dynamic> restaurants = [
     "title": "Italian Restaurant",
     "time": "6:00am - 9:00pm",
     "imageUrl":
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqoexBaTHidq6TqIsZBec9UKXz44H_yiMVxA&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8Mlm6_vDuPuHeyRgsZEHYYm_gCW8GUlz9dA&s",
     "owner": "sjgdsjgfjshhjs",
     "code": "41007428",
     "logoUrl":
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqoexBaTHidq6TqIsZBec9UKXz44H_yiMVxA&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8Mlm6_vDuPuHeyRgsZEHYYm_gCW8GUlz9dA&s",
     "rating": 5,
     "ratingCount": "3278",
     "coords": {
@@ -172,7 +172,7 @@ List<Map<String, dynamic>> foods = [
       {"id": 5, "title": "Sugar", "price": "0.50"},
     ],
     "imageUrl":
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqoexBaTHidq6TqIsZBec9UKXz44H_yiMVxA&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxvzy0cdefTY0rS2ckvYZlttAN9P6AQq5AVg&s",
     "__v": 0,
     "category": "6531209dbbe4998e90af3fef",
     "time": "35 min",
@@ -198,7 +198,7 @@ List<Map<String, dynamic>> foods = [
       {"id": 5, "title": "Pasta", "price": "3.00"},
     ],
     "imageUrl":
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqoexBaTHidq6TqIsZBec9UKXz44H_yiMVxA&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5L5JUfUco9XK0SWMF9AqjmhIBbRVrAjI0dQ&s",
     "__v": 2,
     "category": "6531209dbbe4998e90af3fef",
     "time": "20 min",
@@ -224,7 +224,7 @@ List<Map<String, dynamic>> foods = [
       {"id": 5, "title": "Vinaigrette", "price": "0.50"},
     ],
     "imageUrl":
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqoexBaTHidq6TqIsZBec9UKXz44H_yiMVxA&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiCO-Okn2cj2PwJPcZNKuSsrXgb3rf5vxHbg&s",
     "__v": 0,
     "category": "6531209dbbe4998e90af3fef",
     "time": "55 min",
@@ -247,8 +247,7 @@ List<Map<String, dynamic>> foods = [
       {"id": 2, "title": "Pepperoni", "price": "2.50"},
       {"id": 3, "title": "Ketch up", "price": "0.50"},
     ],
-    "imageUrl":
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqoexBaTHidq6TqIsZBec9UKXz44H_yiMVxA&s",
+    "imageUrl": "https://static.toiimg.com/photo/56868564.cms",
     "__v": 0,
     "category": "6531209dbbe4998e90af3fef",
     "time": "30 min",
@@ -274,7 +273,7 @@ List<Map<String, dynamic>> foods = [
       {"id": 5, "title": "Ice", "price": "0.50"},
     ],
     "imageUrl":
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqoexBaTHidq6TqIsZBec9UKXz44H_yiMVxA&s",
+        "https://i.pinimg.com/736x/95/24/74/9524744d63c0bbf9b014a6384a52c1cb.jpg",
     "__v": 0,
     "category": "6531209dbbe4998e90af3fef",
     "time": "25 min",
@@ -306,7 +305,7 @@ List<Map<String, dynamic>> foods = [
       {"id": 5, "title": "Barbecue Sauce", "price": "1.00"},
     ],
     "imageUrl":
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqoexBaTHidq6TqIsZBec9UKXz44H_yiMVxA&s",
+        "https://cleavermeatsltd.co.uk/images/products/271/small/1727106152-097762500.webp",
     "__v": 0,
     "category": "6531209dbbe4998e90af3fef",
     "time": "45 min",
