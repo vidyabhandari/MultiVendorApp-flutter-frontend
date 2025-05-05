@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 
-class fetchHook {
+class FetchHook {
   final dynamic data;
   final bool isLoading;
   final Exception? error;
-  final VoidCallback refetch;
+  final VoidCallback? refetch;
 
-  fetchHook(this.data, this.isLoading, this.error, this.refetch);
+  FetchHook({
+    required this.data,
+    required this.isLoading,
+    required this.error,
+    required this.refetch,
+  });
 }
