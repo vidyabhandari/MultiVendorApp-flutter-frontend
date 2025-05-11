@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:my_firstapp/constants/constants.dart';
 import 'package:my_firstapp/views/entrypoint.dart';
+import 'package:get/get.dart';
+import 'package:my_firstapp/controllers/category_controller.dart';
 
 Widget defaultHome = MainScreen();
+
 void main() {
+  Get.lazyPut(() => CategoryController());
   runApp(const MyApp());
 }
 

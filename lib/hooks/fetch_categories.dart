@@ -12,23 +12,34 @@ FetchHook useFetchCategories() {
   final appiError = useState<ApiError?>(null);
 
   Future<void> fetchData() async {
-    isLoading.value = true;
+  print('🔄 fetchData() called');
+  isLoading.value = true;
 
-    try {
-      Uri url = Uri.parse('$appBaseUrl/api/category/random');
-      final response = await http.get(url);
+  try {
+    Uri url = Uri.parse('$appBaseUrl/api/category/random');
+    print('🌐 Fetching from URL: $url');
 
-      if (response.statusCode == 200) {
-        categoriesItems.value = categoriesModelFromJson(response.body);
-      } else {
-        appiError.value = apiErrorFromJson(response.body);
-      }
-    } catch (e) {
-      error.value = e as Exception;
+    final response = await http.get(url);
+    print('✅ Status code: ${response.statusCode}');
+
+    if (response.statusCode == 200) {
+      print('📦 Category JSON: ${response.body}');
+      categoriesItems.value = categoriesModelFromJson(response.body);
+    } else {
+      print('❌ Error response: ${response.body}');
+      appiError.value = apiErrorFromJson(response.body);
     }
+  } catch (e, stackTrace) {
+    print('🔥 Exception: $e');
+    print(stackTrace);
+    error.value = e as Exception;
+  } finally {
+    isLoading.value = false;
   }
+}
 
   useEffect(() {
+    print('🚀 useEffect triggered');
     fetchData();
     return null;
   }, []);
