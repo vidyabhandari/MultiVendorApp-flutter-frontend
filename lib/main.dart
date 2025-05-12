@@ -9,6 +9,7 @@ Widget defaultHome = MainScreen();
 
 void main() {
   Get.lazyPut(() => CategoryController());
+  
   runApp(const MyApp());
 }
 

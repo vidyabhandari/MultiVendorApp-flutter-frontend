@@ -16,20 +16,18 @@ class CategoryList extends HookWidget {
     final bool isLoading = hookResult.isLoading;
     final error = hookResult.error;
 
-    if (isLoading || categoriesList == null) {
-      return const CatergoriesShimmer();
-    }
-
-    return Container(
-      height: 75.h,
-      padding: EdgeInsets.only(left: 20.w),
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: List.generate(categoriesList.length, (i) {
-          final CategoriesModel category = categoriesList[i];
-          return CategoryWidget(category: category);
-        }),
-      ),
-    );
+    return isLoading
+        ? const CatergoriesShimmer()
+        : Container(
+          height: 80.h,
+          padding: EdgeInsets.only(left: 20.w),
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: List.generate(categoriesList!.length, (i) {
+              final CategoriesModel category = categoriesList[i];
+              return CategoryWidget(category: category);
+            }),
+          ),
+        );
   }
 }
