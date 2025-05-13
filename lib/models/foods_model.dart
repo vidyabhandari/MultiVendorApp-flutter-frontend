@@ -1,8 +1,10 @@
 import 'dart:convert';
 
-List<FoodsModel> foodsModelFromJson(String str) => List<FoodsModel>.from(json.decode(str).map((x) => FoodsModel.fromJson(x)));
+List<FoodsModel> foodsModelFromJson(String str) =>
+    List<FoodsModel>.from(json.decode(str).map((x) => FoodsModel.fromJson(x)));
 
-String foodsModelToJson(List<FoodsModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String foodsModelToJson(List<FoodsModel> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class FoodsModel {
   final String id;
@@ -16,7 +18,7 @@ class FoodsModel {
   final String description;
   final List<Additive> additives;
   final List<String> imageUrl;
-  final String price;
+  final double price;
   final String category;
   final String time;
 
@@ -44,12 +46,21 @@ class FoodsModel {
     foodType: List<String>.from(json["foodType"].map((x) => x)),
     isAvailable: json["isAvailable"],
     restaurant: json["restaurant"],
-    ratingCount: json["ratingCount"],
-    rating: json["rating"],
+    rating: json["rating"].toString(),
+    ratingCount: json["ratingCount"].toString(),
     description: json["description"],
-    additives: List<Additive>.from(json["additives"].map((x) => Additive.fromJson(x))),
-    imageUrl: List<String>.from(json["imageUrl"].map((x) => x)),
-    price: json["price"],
+    additives:
+        json["additives"] != null
+            ? List<Additive>.from(
+              json["additives"].map((x) => Additive.fromJson(x)),
+            )
+            : [],
+    imageUrl:
+        json["imageUrl"] != null
+            ? List<String>.from(json["imageUrl"].map((x) => x))
+            : [],
+    price:
+        (json["price"] as List).isNotEmpty ? json["price"][0].toDouble() : 0.0,
     category: json["category"],
     time: json["time"],
   );
@@ -77,21 +88,10 @@ class Additive {
   final String title;
   final String price;
 
-  Additive({
-    required this.id,
-    required this.title,
-    required this.price,
-  });
+  Additive({required this.id, required this.title, required this.price});
 
-  factory Additive.fromJson(Map<String, dynamic> json) => Additive(
-    id: json["_id"],
-    title: json["title"],
-    price: json["price"],
-  );
+  factory Additive.fromJson(Map<String, dynamic> json) =>
+      Additive(id: json["_id"], title: json["title"], price: json["price"]);
 
-  Map<String, dynamic> toJson() => {
-    "_id": id,
-    "title": title,
-    "price": price,
-  };
+  Map<String, dynamic> toJson() => {"_id": id, "title": title, "price": price};
 }

@@ -1,28 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_firstapp/constants/uidata.dart';
+import 'package:my_firstapp/common/shimmers/nearby_shimmer.dart';
+import 'package:my_firstapp/hooks/fetch_foods.dart';
+import 'package:my_firstapp/models/foods_model.dart';
 import 'package:my_firstapp/views/home/widgets/food_widget.dart';
 
-class FoodList extends StatelessWidget {
-  const FoodList({super.key});
+class FoodList extends HookWidget {
+  final dynamic code;
+
+  const FoodList({super.key, required this.code});
 
   @override
   Widget build(BuildContext context) {
+    final hookResults = useFetchFoods(code);
+    final List<FoodsModel>? foods = hookResults.data;
+    final bool isLoading = hookResults.isLoading;
+
     return Container(
       height: 184.h,
       padding: EdgeInsets.only(left: 12.w, top: 10.h),
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: List.generate(foods.length, (i) {
-          var food = foods[i];
-          return FoodWidget(
-            image: food['imageUrl'],
-            title: food['title'],
-            time: food['time'],
-            price: food['price'].toStringAsFixed(2),
-          );
-        }),
-      ),
+      child:
+          isLoading
+              ? const NearbyShimmer()
+              : (foods == null || foods.isEmpty)
+              ? const Center(child: Text("No foods available"))
+              : ListView(
+                scrollDirection: Axis.horizontal,
+                children: List.generate(foods.length, (i) {
+                  final food = foods[i];
+                  return FoodWidget(
+                    image: food.imageUrl[0],
+                    title: food.title,
+                    time: food.time,
+                    price: food.price.toStringAsFixed(2),
+                  );
+                }),
+              ),
     );
   }
 }

@@ -50,7 +50,7 @@ class HomePage extends StatelessWidget {
                 },
               ),
 
-              const FoodList(),
+              const FoodList(code: "41007428"),
               Heading(
                 text: "Food closer to you",
                 onTap: () {
@@ -61,7 +61,7 @@ class HomePage extends StatelessWidget {
                   );
                 },
               ),
-              const FoodList(),
+              const FoodList(code: "41007428"),
             ],
           ),
         ),
