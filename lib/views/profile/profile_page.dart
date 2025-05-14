@@ -14,7 +14,12 @@ class ProfilePage extends StatelessWidget {
         preferredSize: Size.fromHeight(130.h),
         child: Container(height: 130),
       ),
-      body: SafeArea(child: CustomContainer(containerContent: Container())),
+      body: SafeArea(
+        child: CustomContainer(
+          color: Colors.white,
+          containerContent: Container(),
+        ),
+      ),
     );
   }
 }

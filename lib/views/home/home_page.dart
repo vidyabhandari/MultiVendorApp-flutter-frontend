@@ -25,6 +25,7 @@ class HomePage extends StatelessWidget {
       ),
       body: SafeArea(
         child: CustomContainer(
+          color: Colors.white,
           containerContent: Column(
             children: [
               const CategoryList(),

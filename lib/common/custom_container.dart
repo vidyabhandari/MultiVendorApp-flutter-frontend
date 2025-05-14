@@ -4,9 +4,14 @@ import 'package:my_firstapp/constants/constants.dart';
 
 // ignore: must_be_immutable
 class CustomContainer extends StatelessWidget {
-  CustomContainer({super.key, required this.containerContent});
+  CustomContainer({
+    super.key,
+    required this.containerContent,
+    required Color color,
+  });
 
   Widget containerContent;
+  Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +25,7 @@ class CustomContainer extends StatelessWidget {
         ),
         child: Container(
           width: width,
-          color: kOffWhite,
+          color: color ?? kOffWhite,
           child: SingleChildScrollView(child: containerContent),
         ),
       ),
