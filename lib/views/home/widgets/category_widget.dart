@@ -31,7 +31,7 @@ class CategoryWidget extends StatelessWidget {
           );
         } else {
           controller.updateCategory = category.id;
-          controller.updateTitle = category.id;
+          controller.updateTitle = category.title;
         }
       },
       child: Obx(
