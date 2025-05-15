@@ -18,14 +18,17 @@ class Heading extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Padding(
-            padding: EdgeInsets.only(top: 10.h),
-            child: ReusableText(
-              text: text,
-              style: appStyle(16, kDark, FontWeight.bold, 0),
+          /// Wrap text in Expanded to prevent overflows
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.only(top: 10.h),
+              child: ReusableText(
+                text: text,
+                style: appStyle(16, kDark, FontWeight.bold, 0),
+                overflow: TextOverflow.ellipsis, // <-- add this in ReusableText
+              ),
             ),
           ),
-
           GestureDetector(
             onTap: onTap,
             child: Icon(AntDesign.appstore1, color: kSecondary, size: 20.sp),
