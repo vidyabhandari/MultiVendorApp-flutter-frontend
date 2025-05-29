@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:get/get.dart';
 import 'package:my_firstapp/constants/constants.dart';
 import 'package:my_firstapp/models/foods_model.dart';
@@ -60,25 +61,41 @@ class _FoodPageState extends State<FoodPage> {
                       bottom: 10,
                       child: Padding(
                         padding: const EdgeInsets.only(left: 12.0),
-                        child: Obx(()=>Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: List.generate(widget.food.imageUrl.length, (
-                            index,
-                          ) {
-                            return Container(
-                              margin: EdgeInsets.all(4.h),
-                              width: 10.w,
-                              height: 10.h,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color:
-                                    controller.currentPage == index
-                                        ? kSecondary
-                                        : kGrayLight,
-                              ),
-                            );
-                          }),
-                        )),
+                        child: Obx(
+                          () => Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: List.generate(
+                              widget.food.imageUrl.length,
+                              (index) {
+                                return Container(
+                                  margin: EdgeInsets.all(4.h),
+                                  width: 10.w,
+                                  height: 10.h,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color:
+                                        controller.currentPage == index
+                                            ? kSecondary
+                                            : kGrayLight,
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 40.h,
+                      left: 12.w,
+                      child: GestureDetector(
+                        onTap: () {
+                          Get.back();
+                        },
+                        child: const Icon(
+                          Ionicons.chevron_back_circle,
+                          color: kPrimary,
+                        ),
                       ),
                     ),
                   ],
