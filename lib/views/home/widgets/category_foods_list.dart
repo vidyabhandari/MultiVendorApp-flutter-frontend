@@ -24,9 +24,9 @@ class CategoryFoodsList extends HookWidget {
               : Padding(
                 padding: EdgeInsets.all(12.h),
                 child: ListView(
-                  children: List.generate(foods!.length, (i) {
+                  children: List.generate(foods.length, (i) {
                     FoodsModel food = foods[i];
-                    return FoodTile(food: food, color: kWhite);
+                    return FoodTile(food: food, color: Colors.white);
                   }),
                 ),
               ),
