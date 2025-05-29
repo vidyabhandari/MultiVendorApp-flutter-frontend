@@ -81,7 +81,7 @@ class HomePage extends StatelessWidget {
                               Heading(
                                 more: true,
                                 text:
-                                    "Explore ${controller.title.value} Category",
+                                    "Explore ${controller.titleValue} Category",
                                 onTap: () {
                                   Get.to(
                                     () => const RecommendationsPage(),
@@ -90,10 +90,10 @@ class HomePage extends StatelessWidget {
                                   );
                                 },
                               ),
-                              const CategoryFoodsList()
+                              const CategoryFoodsList(),
                             ],
                           ),
-                          color: kOffWhite,
+                          color: kDark,
                         ),
               ),
             ],

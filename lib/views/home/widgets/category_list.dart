@@ -12,19 +12,31 @@ class CategoryList extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final hookResult = useFetchCategories();
-    final List<CategoriesModel>? categoriesList = hookResult.data;
-    final bool isLoading = hookResult.isLoading;
+    List<CategoriesModel>? categoriesList = hookResult.data;
+    final isLoading = hookResult.isLoading;
     final error = hookResult.error;
+
+    if (!isLoading && categoriesList != null) {
+      categoriesList.add(
+        CategoriesModel(
+          id: 'more', // dummy id
+          title: 'More',
+          value: 'more',
+          imageUrl:
+              'https://cdn-icons-png.flaticon.com/128/1828/1828817.png', // or any "more" icon
+        ),
+      );
+    }
 
     return isLoading
         ? const CatergoriesShimmer()
         : Container(
           height: 80.h,
-          padding: EdgeInsets.only(left: 20.w),
+          padding: EdgeInsets.only(left: 12.w, top: 10.h),
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: List.generate(categoriesList!.length, (i) {
-              final CategoriesModel category = categoriesList[i];
+              CategoriesModel category = categoriesList[i];
               return CategoryWidget(category: category);
             }),
           ),

@@ -3,7 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_firstapp/common/shimmers/foodlist_shimmer.dart';
 import 'package:my_firstapp/constants/constants.dart';
-import 'package:my_firstapp/hooks/fetch_all_foods.dart';
+import 'package:my_firstapp/hooks/fetch_category_foods.dart';
 import 'package:my_firstapp/models/foods_model.dart';
 import 'package:my_firstapp/views/home/widgets/food_tile.dart';
 
@@ -12,7 +12,7 @@ class CategoryFoodsList extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final hookResult = useFetchAllFoods("41007428");
+    final hookResult = useFetchFoodsByCategory("41007428");
     List<FoodsModel>? foods = hookResult.data;
     final isLoading = hookResult.isLoading;
     return SizedBox(
@@ -26,7 +26,7 @@ class CategoryFoodsList extends HookWidget {
                 child: ListView(
                   children: List.generate(foods!.length, (i) {
                     FoodsModel food = foods[i];
-                    return FoodTile(food: food);
+                    return FoodTile(food: food, color: kWhite);
                   }),
                 ),
               ),

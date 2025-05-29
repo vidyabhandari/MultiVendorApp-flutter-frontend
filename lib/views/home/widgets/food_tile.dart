@@ -8,7 +8,7 @@ import 'package:my_firstapp/constants/constants.dart';
 import 'package:my_firstapp/models/foods_model.dart';
 
 class FoodTile extends StatelessWidget {
-  const FoodTile({super.key, required this.food});
+  const FoodTile({super.key, required this.food, required Color color});
 
   final FoodsModel food;
 

@@ -6,7 +6,6 @@ import 'package:my_firstapp/common/back_ground_container.dart';
 import 'package:my_firstapp/common/reusable_text.dart';
 import 'package:my_firstapp/common/shimmers/foodlist_shimmer.dart';
 import 'package:my_firstapp/constants/constants.dart';
-import 'package:my_firstapp/constants/uidata.dart';
 import 'package:my_firstapp/hooks/fetch_all_foods.dart';
 import 'package:my_firstapp/models/foods_model.dart';
 import 'package:my_firstapp/views/home/widgets/food_tile.dart';
@@ -39,7 +38,7 @@ class AllFastestFoodsPage extends HookWidget {
                   child: ListView(
                     children: List.generate(foods!.length, (i) {
                       FoodsModel food = foods[i];
-                      return FoodTile(food: food);
+                      return FoodTile(food: food, color: kDark);
                     }),
                   ),
                 ),

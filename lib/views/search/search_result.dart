@@ -19,7 +19,7 @@ class SearchResults extends StatelessWidget {
         itemCount: controller.searchResults!.length,
         itemBuilder: (context, i) {
           FoodsModel food = controller.searchResults![i];
-          return FoodTile(food: food);
+          return FoodTile(food: food, color: kDark);
         },
       ),
     );

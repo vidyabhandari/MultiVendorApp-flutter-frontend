@@ -6,7 +6,7 @@ import 'package:my_firstapp/common/back_ground_container.dart';
 import 'package:my_firstapp/common/reusable_text.dart';
 import 'package:my_firstapp/common/shimmers/foodlist_shimmer.dart';
 import 'package:my_firstapp/constants/constants.dart';
-import 'package:my_firstapp/hooks/fetch_categories.dart';
+import 'package:my_firstapp/hooks/fetch_all_categories.dart';
 import 'package:my_firstapp/models/category.dart';
 import 'package:my_firstapp/views/category/widgets/category_tile.dart';
 
@@ -15,7 +15,7 @@ class AllCategories extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final hookResults = useFetchCategories();
+    final hookResults = useFetchAllCategories();
     List<CategoriesModel>? categories = hookResults.data;
     final isLoading = hookResults.isLoading;
     return Scaffold(
