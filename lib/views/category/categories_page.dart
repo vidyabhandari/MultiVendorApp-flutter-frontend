@@ -51,7 +51,7 @@ class CategoriesPage extends HookWidget {
                     child: ListView(
                       children: List.generate(foods.length, (i) {
                         FoodsModel food = foods[i];
-                        return FoodTile(food: food, color: kOffWhite);
+                        return FoodTile(food: food, color: Colors.white);
                       }),
                     ),
                   ),
