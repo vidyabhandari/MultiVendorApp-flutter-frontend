@@ -1,15 +1,17 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:get/get.dart';
 import 'package:my_firstapp/common/custom_button.dart';
 import 'package:my_firstapp/constants/constants.dart';
+import 'package:my_firstapp/hooks/fetch_restaurant.dart';
 import 'package:my_firstapp/models/foods_model.dart';
 import 'package:my_firstapp/views/category/foods_controller.dart';
 import 'package:my_firstapp/views/restaurants/restaurant_page.dart';
 
-class FoodPage extends StatefulWidget {
+class FoodPage extends StatefulHookWidget {
   const FoodPage({super.key, required this.food});
 
   final FoodsModel food;
@@ -20,10 +22,11 @@ class FoodPage extends StatefulWidget {
 
 class _FoodPageState extends State<FoodPage> {
   final PageController _pageController = PageController();
+
   @override
   Widget build(BuildContext context) {
+    final hookResult = useFetchRestaurant(widget.food.restaurant);
     final controller = Get.put(FoodsController());
-
     return Scaffold(
       body: ListView(
         physics: const NeverScrollableScrollPhysics(),
@@ -54,7 +57,6 @@ class _FoodPageState extends State<FoodPage> {
                     },
                   ),
                 ),
-
                 Positioned(
                   bottom: 10,
                   child: Padding(
@@ -92,16 +94,16 @@ class _FoodPageState extends State<FoodPage> {
                     child: const Icon(
                       Ionicons.chevron_back_circle,
                       color: kPrimary,
+                      size: 30,
                     ),
                   ),
                 ),
-
                 Positioned(
                   bottom: 10,
                   right: 12.w,
                   child: CustomButton(
                     onTap: () {
-                      Get.to(() => const RestaurantPage());
+                      Get.to(() => RestaurantPage(restaurant: hookResult.data));
                     },
                     btnWidth: 120.w,
                     text: "Open Restaurant",

@@ -9,22 +9,22 @@ String restaurantsmodelToJson(List<Restaurantsmodel> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Restaurantsmodel {
-  String id;
-  String title;
-  String time;
-  String imageUrl;
-  List<dynamic> foods;
-  bool pickup;
-  bool delivery;
-  bool isAvailable;
-  String owner;
-  String code;
-  String logoUrl;
-  int rating;
-  String ratingCount;
-  String verification;
-  String verificationMessage;
-  Coords coords;
+  final String id;
+  final String title;
+  final String time;
+  final String imageUrl;
+  final List<dynamic> foods;
+  final bool pickup;
+  final bool delivery;
+  final String owner;
+  final bool isAvailable;
+  final String code;
+  final String logoUrl;
+  final int rating;
+  final String ratingCount;
+  final String verification;
+  final String verificationMessage;
+  final Coords coords;
 
   Restaurantsmodel({
     required this.id,
@@ -86,13 +86,13 @@ class Restaurantsmodel {
 }
 
 class Coords {
-  String id;
-  double latitude;
-  double longitude;
-  String address;
-  String title;
-  double latitudeDelta;
-  double longitudeDelta;
+  final String id;
+  final double latitude;
+  final double longitude;
+  final String address;
+  final String title;
+  final double latitudeDelta;
+  final double longitudeDelta;
 
   Coords({
     required this.id,

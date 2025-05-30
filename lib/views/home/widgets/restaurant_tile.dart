@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/route_manager.dart';
 import 'package:my_firstapp/common/app_style.dart';
 import 'package:my_firstapp/common/reusable_text.dart';
 import 'package:my_firstapp/constants/constants.dart';
 import 'package:my_firstapp/models/restaurants_model.dart';
+import 'package:my_firstapp/views/restaurants/restaurant_page.dart';
 
 class RestaurantTile extends StatelessWidget {
   const RestaurantTile({super.key, required this.restaurant});
@@ -14,7 +16,9 @@ class RestaurantTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Get.to(() => RestaurantPage(restaurant: restaurant));
+      },
       child: Stack(
         clipBehavior: Clip.hardEdge,
         children: [
