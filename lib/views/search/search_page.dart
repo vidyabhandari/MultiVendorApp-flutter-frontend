@@ -57,6 +57,7 @@ class _SearchPageState extends State<SearchPage> {
                         )
                         : Icon(Ionicons.close_circle, size: 40.h, color: kRed),
               ),
+              maxLines: 10,
             ),
           ),
         ),

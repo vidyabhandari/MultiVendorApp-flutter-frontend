@@ -59,11 +59,12 @@ class FoodsModel {
     ratingCount: json["ratingCount"]?.toString() ?? "0",
     description: json["description"] ?? "",
     additives:
-        json["additives"] != null
+        json["additives"] != null && json["additives"] is List
             ? List<Additive>.from(
               json["additives"].map((x) => Additive.fromJson(x)),
             )
             : [],
+
     imageUrl:
         json["imageUrl"] != null
             ? List<String>.from(json["imageUrl"].map((x) => x.toString()))
@@ -98,17 +99,20 @@ class FoodsModel {
 }
 
 class Additive {
-  final String id;
+  final int id;
   final String title;
   final String price;
 
   Additive({required this.id, required this.title, required this.price});
 
   factory Additive.fromJson(Map<String, dynamic> json) => Additive(
-    id: json["_id"] ?? "",
+    id:
+        json["id"] is int
+            ? json["id"]
+            : int.tryParse(json["id"].toString()) ?? 0,
     title: json["title"] ?? "",
     price: json["price"]?.toString() ?? "0",
   );
 
-  Map<String, dynamic> toJson() => {"_id": id, "title": title, "price": price};
+  Map<String, dynamic> toJson() => {"id": id, "title": title, "price": price};
 }
