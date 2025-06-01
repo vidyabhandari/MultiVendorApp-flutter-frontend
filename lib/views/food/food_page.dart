@@ -14,6 +14,8 @@ import 'package:my_firstapp/hooks/fetch_restaurant.dart';
 import 'package:my_firstapp/models/foods_model.dart';
 import 'package:my_firstapp/views/restaurants/restaurant_page.dart';
 
+import '../auth/phone_verification_page.dart';
+
 class FoodPage extends StatefulHookWidget {
   const FoodPage({super.key, required this.food});
 
@@ -372,7 +374,9 @@ class _FoodPageState extends State<FoodPage> {
                   radius: 0,
                   text: "Verify Phone number",
                   btnHeight: 28.h,
-                  onTap: () {},
+                  onTap: () {
+                    Get.to(() => const PhoneVerificationPage());
+                  },
                 ),
               ],
             ),
