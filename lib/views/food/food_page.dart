@@ -366,6 +366,14 @@ class _FoodPageState extends State<FoodPage> {
                     }),
                   ),
                 ),
+
+                SizedBox(height: 10.h),
+                CustomButton(
+                  radius: 0,
+                  text: "Verify Phone number",
+                  btnHeight: 28.h,
+                  onTap: () {},
+                ),
               ],
             ),
           ),
