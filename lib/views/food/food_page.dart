@@ -270,12 +270,107 @@ class _FoodPageState extends State<FoodPage> {
                     maxLines: 3,
                   ),
                 ),
-                
+
+                SizedBox(height: 15.h),
+
+                Container(
+                  height: 40.h,
+                  decoration: BoxDecoration(
+                    color: kPrimary,
+                    borderRadius: BorderRadius.circular(30.r),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          showVerificationSheet(context);
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 12.w),
+                          child: ReusableText(
+                            text: "Place Order",
+                            style: appStyle(
+                              18,
+                              kLightWhite,
+                              FontWeight.w600,
+                              0,
+                            ),
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {},
+                        child: CircleAvatar(
+                          backgroundColor: kSecondary,
+                          radius: 20.r,
+                          child: const Icon(Ionicons.cart, color: kLightWhite),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
         ],
       ),
+    );
+  }
+
+  Future<dynamic> showVerificationSheet(BuildContext context) {
+    return showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      showDragHandle: true,
+      builder: (BuildContext context) {
+        return Container(
+          height: 530.h,
+          width: width,
+          decoration: BoxDecoration(
+            image: const DecorationImage(
+              image: AssetImage("assets/images/restaurant_bk.png"),
+              fit: BoxFit.fill,
+            ),
+            color: kLightWhite,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(12.r),
+              topRight: Radius.circular(12.r),
+            ),
+          ),
+          child: Padding(
+            padding: EdgeInsets.all(8.h),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(height: 10.h),
+                ReusableText(
+                  text: "Verify Your Phone Number",
+                  style: appStyle(16, kPrimary, FontWeight.w600, 0),
+                ),
+                SizedBox(
+                  height: 320.h,
+                  child: Column(
+                    children: List.generate(verficationResaons.length, (index) {
+                      return ListTile(
+                        leading: const Icon(
+                          Icons.check_circle_outline,
+                          color: kPrimary,
+                        ),
+                        title: Text(
+                          verficationResaons[index],
+                          textAlign: TextAlign.justify,
+                          style: appStyle(11, kDark, FontWeight.normal, 0),
+                        ),
+                      );
+                    }),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }
