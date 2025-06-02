@@ -18,6 +18,7 @@ class RestaurantPage extends StatefulWidget {
 
 class _RestaurantPageState extends State<RestaurantPage>
     with TickerProviderStateMixin {
+  late TabController _tabController = TabController(length: 2, vsync: this);
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -53,7 +54,7 @@ class _RestaurantPageState extends State<RestaurantPage>
             SizedBox(height: 10.h),
 
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              padding: EdgeInsets.symmetric(horizontal: 8.0.w),
               child: Column(
                 children: [
                   const RowText(
@@ -65,6 +66,37 @@ class _RestaurantPageState extends State<RestaurantPage>
                   SizedBox(height: 3.h),
                   const RowText(first: "Estimated Time", second: "30 min"),
                   const Divider(thickness: 0.7),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 25.h,
+              width: width,
+              child: TabBar(
+                controller: _tabController,
+                indicator: BoxDecoration(
+                  color: kPrimary,
+                  borderRadius: BorderRadius.circular(25.r),
+                ),
+                labelPadding: EdgeInsets.zero,
+                labelColor: kLightWhite,
+                unselectedLabelColor: kGrayLight,
+                tabs: [
+                  Tab(
+                    child: SizedBox(
+                      width: width / 2,
+                      height: 25,
+                      child: Center(child: Text("data")),
+                    ),
+                  ),
+
+                  Tab(
+                    child: SizedBox(
+                      width: width / 2,
+                      height: 25,
+                      child: Center(child: Text("data")),
+                    ),
+                  ),
                 ],
               ),
             ),
