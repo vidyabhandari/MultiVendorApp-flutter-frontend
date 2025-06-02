@@ -1,8 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_firstapp/common/app_style.dart';
-import 'package:my_firstapp/common/reusable_text.dart';
 import 'package:my_firstapp/constants/constants.dart';
 import 'package:my_firstapp/models/restaurants_model.dart';
 import 'package:my_firstapp/views/restaurants/widget/restaurant_bottom_bar.dart';
@@ -20,8 +18,6 @@ class RestaurantPage extends StatefulWidget {
 
 class _RestaurantPageState extends State<RestaurantPage>
     with TickerProviderStateMixin {
-  late TabController _tabController = TabController(length: 2, vsync: this);
-
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
