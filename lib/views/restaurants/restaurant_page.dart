@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_firstapp/common/app_style.dart';
 import 'package:my_firstapp/constants/constants.dart';
 import 'package:my_firstapp/models/restaurants_model.dart';
 import 'package:my_firstapp/views/restaurants/widget/restaurant_bottom_bar.dart';
@@ -69,35 +70,43 @@ class _RestaurantPageState extends State<RestaurantPage>
                 ],
               ),
             ),
-            SizedBox(
-              height: 25.h,
-              width: width,
-              child: TabBar(
-                controller: _tabController,
-                indicator: BoxDecoration(
-                  color: kPrimary,
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8.0.w),
+              child: Container(
+                height: 25.h,
+                width: width,
+                decoration: BoxDecoration(
+                  color: kOffWhite,
                   borderRadius: BorderRadius.circular(25.r),
                 ),
-                labelPadding: EdgeInsets.zero,
-                labelColor: kLightWhite,
-                unselectedLabelColor: kGrayLight,
-                tabs: [
-                  Tab(
-                    child: SizedBox(
-                      width: width / 2,
-                      height: 25,
-                      child: Center(child: Text("data")),
-                    ),
+                child: TabBar(
+                  controller: _tabController,
+                  indicator: BoxDecoration(
+                    color: kPrimary,
+                    borderRadius: BorderRadius.circular(25.r),
                   ),
+                  labelPadding: EdgeInsets.zero,
+                  labelColor: kLightWhite,
+                  labelStyle: appStyle(12, kLightWhite, FontWeight.normal, 0),
+                  unselectedLabelColor: kGrayLight,
+                  tabs: [
+                    Tab(
+                      child: SizedBox(
+                        width: width / 2,
+                        height: 25,
+                        child: const Center(child: Text("Menu")),
+                      ),
+                    ),
 
-                  Tab(
-                    child: SizedBox(
-                      width: width / 2,
-                      height: 25,
-                      child: Center(child: Text("data")),
+                    Tab(
+                      child: SizedBox(
+                        width: width / 2,
+                        height: 25,
+                        child: const Center(child: Text("Explore")),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ],
