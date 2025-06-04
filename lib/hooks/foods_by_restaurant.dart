@@ -18,7 +18,7 @@ FetchFoods useFetchrestaurantFoods(String id) {
     try {
       Uri url = Uri.parse('$appBaseUrl/api/foods/restaurant-foods/$id');
       final response = await http.get(url);
-      
+
       if (response.statusCode == 200) {
         foods.value = foodsModelFromJson(response.body);
       }
@@ -29,7 +29,6 @@ FetchFoods useFetchrestaurantFoods(String id) {
     }
   }
 
-  print('Restaurant ID: $id');
   useEffect(() {
     Future.delayed(const Duration(seconds: 3));
     fetchData();

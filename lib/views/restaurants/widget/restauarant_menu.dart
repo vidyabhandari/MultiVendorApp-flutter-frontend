@@ -16,9 +16,6 @@ class RestaurantMenuWidget extends HookWidget {
     final hookResults = useFetchrestaurantFoods(restaurantId);
     final foods = hookResults.data;
     final isLoading = hookResults.isLoading;
-    
-    print("Fetched Foods: $foods");
-    print("Is Loading: $isLoading");
 
     return Scaffold(
       backgroundColor: kLightWhite,
