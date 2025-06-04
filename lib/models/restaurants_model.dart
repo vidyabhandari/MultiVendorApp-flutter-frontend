@@ -5,7 +5,7 @@ List<Restaurantsmodel> restaurantsmodelFromJson(String str) =>
       json.decode(str).map((x) => Restaurantsmodel.fromJson(x)),
     );
 
-String restaurantsmodelToJson(List<Restaurantsmodel> data) =>
+String restaurantsodelToJson(List<Restaurantsmodel> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Restaurantsmodel {
@@ -13,7 +13,7 @@ class Restaurantsmodel {
   final String title;
   final String time;
   final String imageUrl;
-  final List<dynamic> foods;
+  final List<String> foods;
   final bool pickup;
   final bool delivery;
   final String owner;
@@ -34,8 +34,8 @@ class Restaurantsmodel {
     required this.foods,
     required this.pickup,
     required this.delivery,
-    required this.isAvailable,
     required this.owner,
+    required this.isAvailable,
     required this.code,
     required this.logoUrl,
     required this.rating,
@@ -51,11 +51,11 @@ class Restaurantsmodel {
         title: json["title"],
         time: json["time"],
         imageUrl: json["imageUrl"],
-        foods: List<dynamic>.from(json["foods"].map((x) => x)),
+        foods: List<String>.from(json["foods"] ?? []),
         pickup: json["pickup"],
         delivery: json["delivery"],
-        isAvailable: json["isAvailable"],
         owner: json["owner"],
+        isAvailable: json["isAvailable"],
         code: json["code"],
         logoUrl: json["logoUrl"],
         rating: json["rating"],
@@ -73,8 +73,8 @@ class Restaurantsmodel {
     "foods": List<dynamic>.from(foods.map((x) => x)),
     "pickup": pickup,
     "delivery": delivery,
-    "isAvailable": isAvailable,
     "owner": owner,
+    "isAvailable": isAvailable,
     "code": code,
     "logoUrl": logoUrl,
     "rating": rating,

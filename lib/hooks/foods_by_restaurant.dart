@@ -1,12 +1,13 @@
-import 'package:my_firstapp/constants/constants.dart';
-import 'package:my_firstapp/models/api_error.dart';
-import 'package:my_firstapp/models/hook_models/hook_result.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:http/http.dart' as http;
-import 'package:my_firstapp/models/restaurants_model.dart';
+import 'package:my_firstapp/constants/constants.dart';
+import 'package:my_firstapp/models/api_error.dart';
+import 'package:my_firstapp/models/foods_model.dart';
+import 'package:my_firstapp/models/hook_models/hook_result.dart';
 
-FetchHook useFetchRestaurants(String code) {
-  final restaurants = useState<List<Restaurantsmodel>?>(null);
+FetchFoods useFetchrestaurantFoods(String id) {
+  final foods = useState<List<FoodsModel>>([]);
   final isLoading = useState<bool>(false);
   final error = useState<Exception?>(null);
   final appiError = useState<ApiError?>(null);
@@ -15,22 +16,24 @@ FetchHook useFetchRestaurants(String code) {
     isLoading.value = true;
 
     try {
-      Uri url = Uri.parse('$appBaseUrl/api/restaurant/$code');
+      Uri url = Uri.parse('$appBaseUrl/api/foods/restaurant-foods/$id');
       final response = await http.get(url);
+      
       if (response.statusCode == 200) {
-        restaurants.value = restaurantsmodelFromJson(response.body);
-      } else {
-        appiError.value = apiErrorFromJson(response.body);
+        foods.value = foodsModelFromJson(response.body);
       }
     } catch (e) {
-      error.value = e as Exception;
+      debugPrint('Restaurant ID: $id');
     } finally {
       isLoading.value = false;
     }
   }
 
+  print('Restaurant ID: $id');
   useEffect(() {
+    Future.delayed(const Duration(seconds: 3));
     fetchData();
+
     return null;
   }, []);
 
@@ -39,8 +42,8 @@ FetchHook useFetchRestaurants(String code) {
     fetchData();
   }
 
-  return FetchHook(
-    data: restaurants.value,
+  return FetchFoods(
+    data: foods.value,
     isLoading: isLoading.value,
     error: error.value,
     refetch: refetch,

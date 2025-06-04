@@ -4,9 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_firstapp/common/app_style.dart';
 import 'package:my_firstapp/constants/constants.dart';
 import 'package:my_firstapp/models/restaurants_model.dart';
+import 'package:my_firstapp/views/restaurants/widget/restauarant_menu.dart';
 import 'package:my_firstapp/views/restaurants/widget/restaurant_bottom_bar.dart';
 import 'package:my_firstapp/views/restaurants/widget/restaurant_top_bar.dart';
 import 'package:my_firstapp/views/restaurants/widget/row_text.dart';
+import 'package:my_firstapp/views/restaurants/widget/xplore_widget.dart';
 
 class RestaurantPage extends StatefulWidget {
   const RestaurantPage({super.key, required this.restaurant});
@@ -20,6 +22,7 @@ class RestaurantPage extends StatefulWidget {
 class _RestaurantPageState extends State<RestaurantPage>
     with TickerProviderStateMixin {
   late TabController _tabController = TabController(length: 2, vsync: this);
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -51,11 +54,9 @@ class _RestaurantPageState extends State<RestaurantPage>
                 ),
               ],
             ),
-
             SizedBox(height: 10.h),
-
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.0.w),
+              padding: EdgeInsets.symmetric(horizontal: 8.w),
               child: Column(
                 children: [
                   const RowText(
@@ -71,7 +72,7 @@ class _RestaurantPageState extends State<RestaurantPage>
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.0.w),
+              padding: EdgeInsets.symmetric(horizontal: 8.w),
               child: Container(
                 height: 25.h,
                 width: width,
@@ -105,6 +106,21 @@ class _RestaurantPageState extends State<RestaurantPage>
                         child: const Center(child: Text("Explore")),
                       ),
                     ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 20.h),
+
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8.w),
+              child: SizedBox(
+                height: hieght,
+                child: TabBarView(
+                  controller: _tabController,
+                  children: [
+                    RestaurantMenuWidget(restaurantId: widget.restaurant!.id),
+                    XploreWidget(code: widget.restaurant!.code),
                   ],
                 ),
               ),

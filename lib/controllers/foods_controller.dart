@@ -6,7 +6,6 @@ class FoodController extends GetxController {
   RxInt currrentPage = 0.obs;
   bool initialCheckValue = false;
   var additivesList = <AdditiveObs>[].obs;
-  RxDouble _totalPrice = 0.0.obs;
 
   void changePage(int index) {
     currrentPage.value = index;
@@ -34,22 +33,14 @@ class FoodController extends GetxController {
         price: additiveInfo.price,
         checked: initialCheckValue,
       );
-      additivesList.add(additive);
-    }
-  }
-
-  List<String> getList() {
-    List<String> ads = [];
-
-    for (var additive in additivesList) {
-      if (additive.isChecked.value && !ads.contains(additive.title)) {
-        ads.add(additive.title);
-      } else if (!additive.isChecked.value && ads.contains(additive.title)) {
-        ads.remove(additive.title);
+      if (additives.length == additivesList.length) {
+      } else {
+        additivesList.add(additive);
       }
     }
-    return ads;
   }
+
+  RxDouble _totalPrice = 0.0.obs;
 
   double get additivePrice => _totalPrice.value;
 

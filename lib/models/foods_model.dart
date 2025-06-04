@@ -54,7 +54,7 @@ class FoodsModel {
             : [],
     code: json["code"] ?? "",
     isAvailable: json["isAvailable"] ?? false,
-    restaurant: json["restaurant"] ?? "",
+    restaurant: json["restaurant"],
     rating: json["rating"]?.toString() ?? "0",
     ratingCount: json["ratingCount"]?.toString() ?? "0",
     description: json["description"] ?? "",
