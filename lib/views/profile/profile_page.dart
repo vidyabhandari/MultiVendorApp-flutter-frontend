@@ -13,12 +13,31 @@ class ProfilePage extends StatelessWidget {
       backgroundColor: kOffWhite,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(40.h),
-        child:ProfileAppBar(),
+        child: const ProfileAppBar(),
       ),
       body: SafeArea(
         child: CustomContainer(
           color: Colors.white,
-          containerContent: Container(),
+          containerContent: Column(
+            children: [
+              Container(
+                height: hieght * 0.06,
+                width: width,
+                color: kPrimary,
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(12.w, 0, 16, 0),
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
