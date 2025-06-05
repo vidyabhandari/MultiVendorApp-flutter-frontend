@@ -22,8 +22,9 @@ class ProfileTileWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       visualDensity: VisualDensity.compact,
+      minLeadingWidth: 0,
       onTap: onTap,
-      leading: Icon(icon),
+      leading: Icon(icon, size: 18),
       title: ReusableText(
         text: title,
         style: appStyle(11, kGray, FontWeight.normal, 0),
