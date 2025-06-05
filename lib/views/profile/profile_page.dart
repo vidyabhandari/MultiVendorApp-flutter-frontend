@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_firstapp/common/custom_container.dart';
 import 'package:my_firstapp/common/profile_app_bar.dart';
 import 'package:my_firstapp/constants/constants.dart';
+import 'package:my_firstapp/views/profile/widget/user_info_widget.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -20,22 +21,9 @@ class ProfilePage extends StatelessWidget {
           color: Colors.white,
           containerContent: Column(
             children: [
-              Container(
-                height: hieght * 0.06,
-                width: width,
-                color: kPrimary,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(12.w, 0, 16, 0),
-                      child: const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              const UserInfoWidget(),
+              SizedBox(height: 10.h),
+              Container(),
             ],
           ),
         ),
