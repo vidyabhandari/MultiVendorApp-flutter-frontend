@@ -70,6 +70,7 @@ class _SearchPageState extends State<SearchPage> {
                     : controller.searchResults == null
                     ? const LoadingWidget()
                     : const SearchResults(),
+            containerHieght: null,
           ),
         ),
       ),

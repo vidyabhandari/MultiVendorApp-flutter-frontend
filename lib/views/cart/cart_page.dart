@@ -18,6 +18,7 @@ class CartPage extends StatelessWidget {
         child: CustomContainer(
           containerContent: Container(),
           color: Colors.white,
+          containerHieght: null,
         ),
       ),
     );

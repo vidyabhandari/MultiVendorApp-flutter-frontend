@@ -94,10 +94,12 @@ class HomePage extends StatelessWidget {
                             ],
                           ),
                           color: kDark,
+                          containerHieght: null,
                         ),
               ),
             ],
           ),
+          containerHieght: null,
         ),
       ),
     );

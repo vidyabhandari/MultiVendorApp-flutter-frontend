@@ -97,7 +97,7 @@ class ProfilePage extends StatelessWidget {
                 text: "Logout",
               ),
             ],
-          ),
+          ), containerHieght: null,
         ),
       ),
     );
