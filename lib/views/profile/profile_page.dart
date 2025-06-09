@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:my_firstapp/common/custom_button.dart';
 import 'package:my_firstapp/common/custom_container.dart';
+import 'package:my_firstapp/views/auth/login_redirect.dart';
 import 'package:my_firstapp/views/profile/widget/profile_app_bar.dart';
 import 'package:my_firstapp/constants/constants.dart';
 import 'package:my_firstapp/views/profile/widget/profile_tile_widget.dart';
@@ -34,7 +37,9 @@ class ProfilePage extends StatelessWidget {
                   physics: const NeverScrollableScrollPhysics(),
                   children: [
                     ProfileTileWidget(
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(() => const LoginRedirect());
+                      },
                       title: 'My Order',
                       icon: Ionicons.fast_food_outline,
                     ),
@@ -58,7 +63,6 @@ class ProfilePage extends StatelessWidget {
               ),
 
               SizedBox(height: 15.h),
-              
 
               Container(
                 height: 210.h,
@@ -98,7 +102,8 @@ class ProfilePage extends StatelessWidget {
                 text: "Logout",
               ),
             ],
-          ), containerHieght: null,
+          ),
+          containerHieght: null,
         ),
       ),
     );
