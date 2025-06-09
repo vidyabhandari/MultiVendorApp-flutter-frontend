@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:my_firstapp/common/app_style.dart';
 import 'package:my_firstapp/common/custom_button.dart';
 import 'package:my_firstapp/common/custom_container.dart';
 import 'package:my_firstapp/common/reusable_text.dart';
 import 'package:my_firstapp/constants/constants.dart';
+import 'package:my_firstapp/views/auth/login_page.dart';
 
 class LoginRedirect extends StatelessWidget {
   const LoginRedirect({super.key});
@@ -35,7 +37,13 @@ class LoginRedirect extends StatelessWidget {
               CustomButton(
                 radius: 0.r,
                 text: "L O G I N",
-                onTap: () {},
+                onTap: () {
+                  Get.to(
+                    () => const LoginPage(),
+                    transition: Transition.cupertino,
+                    duration: const Duration(milliseconds: 900),
+                  );
+                },
                 btnHeight: 40.h,
                 btnWidth: width - 20,
               ),
