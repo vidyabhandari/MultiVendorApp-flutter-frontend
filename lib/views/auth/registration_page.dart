@@ -8,17 +8,16 @@ import 'package:my_firstapp/common/back_ground_container.dart';
 import 'package:my_firstapp/common/custom_button.dart';
 import 'package:my_firstapp/common/reusable_text.dart';
 import 'package:my_firstapp/constants/constants.dart';
-import 'package:my_firstapp/views/auth/registration_page.dart';
 import 'package:my_firstapp/views/auth/widget/email_textfield.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class RegistrationPage extends StatefulWidget {
+  const RegistrationPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegistrationPage> createState() => _RegistrationPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegistrationPageState extends State<RegistrationPage> {
   late final TextEditingController _emailController = TextEditingController();
   late final TextEditingController _passwordController =
       TextEditingController();
@@ -91,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                       text: "L O G I N",
                       onTap: () {
                         Get.to(
-                          () => const LoginPage(),
+                          () => const RegistrationPage(),
                           transition: Transition.cupertino,
                           duration: const Duration(milliseconds: 900),
                         );
@@ -108,13 +107,7 @@ class _LoginPageState extends State<LoginPage> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           GestureDetector(
-                            onTap: () {
-                              Get.to(
-                                () => const RegistrationPage(),
-                                transition: Transition.fadeIn,
-                                duration: const Duration(seconds: 3),
-                              );
-                            },
+                            onTap: () {},
                             child: ReusableText(
                               text: "Register",
                               style: appStyle(
