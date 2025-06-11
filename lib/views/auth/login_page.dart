@@ -8,6 +8,7 @@ import 'package:my_firstapp/common/back_ground_container.dart';
 import 'package:my_firstapp/common/custom_button.dart';
 import 'package:my_firstapp/common/reusable_text.dart';
 import 'package:my_firstapp/constants/constants.dart';
+import 'package:my_firstapp/models/login_model.dart';
 import 'package:my_firstapp/views/auth/registration_page.dart';
 import 'package:my_firstapp/views/auth/widget/email_textfield.dart';
 import 'package:my_firstapp/views/auth/widget/password_textfield.dart';
@@ -83,11 +84,17 @@ class _LoginPageState extends State<LoginPage> {
                       radius: 0.r,
                       text: "L O G I N",
                       onTap: () {
-                        Get.to(
-                          () => const LoginPage(),
-                          transition: Transition.cupertino,
-                          duration: const Duration(milliseconds: 900),
-                        );
+                        if (_emailController.text.isNotEmpty &&
+                            _passwordController.text.length >= 8) {
+                          LoginModel model = LoginModel(
+                            email: _emailController.text,
+                            password: _passwordController.text,
+                          );
+
+                          String data = loginModelToJson(model);
+
+                          //Login function
+                        }
                       },
                       btnHeight: 40.h,
                       btnWidth: width,

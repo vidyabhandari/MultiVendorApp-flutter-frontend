@@ -14,7 +14,7 @@ class LoginResponse {
   final String email;
   final String fcm;
   final String phone;
-  final bool phoneVerification;
+  final bool verification;
   final String userType;
   final String profile;
   final String usertoken;
@@ -25,7 +25,7 @@ class LoginResponse {
     required this.email,
     required this.fcm,
     required this.phone,
-    required this.phoneVerification,
+    required this.verification,
     required this.userType,
     required this.profile,
     required this.usertoken,
@@ -37,7 +37,7 @@ class LoginResponse {
     email: json["email"],
     fcm: json["fcm"],
     phone: json["phone"],
-    phoneVerification: json["phoneVerification"],
+    verification: json["verification"],
     userType: json["userType"],
     profile: json["profile"],
     usertoken: json["usertoken"],
@@ -49,7 +49,7 @@ class LoginResponse {
     "email": email,
     "fcm": fcm,
     "phone": phone,
-    "phoneVerification": phoneVerification,
+    "verification": verification,
     "userType": userType,
     "profile": profile,
     "usertoken": usertoken,

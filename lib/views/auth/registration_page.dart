@@ -8,6 +8,7 @@ import 'package:my_firstapp/common/back_ground_container.dart';
 import 'package:my_firstapp/common/custom_button.dart';
 import 'package:my_firstapp/common/reusable_text.dart';
 import 'package:my_firstapp/constants/constants.dart';
+import 'package:my_firstapp/models/registration_model.dart';
 import 'package:my_firstapp/views/auth/widget/email_textfield.dart';
 import 'package:my_firstapp/views/auth/widget/password_textfield.dart';
 
@@ -96,11 +97,17 @@ class _RegistrationPageState extends State<RegistrationPage> {
                       radius: 0.r,
                       text: "R E G I S T E R",
                       onTap: () {
-                        Get.to(
-                          () => const RegistrationPage(),
-                          transition: Transition.cupertino,
-                          duration: const Duration(milliseconds: 900),
-                        );
+                        if (_emailController.text.isNotEmpty &&
+                            _userController.text.isNotEmpty &&
+                            _passwordController.text.length >= 8) {
+                          RegistrationModel model = RegistrationModel(
+                            username: _userController.text,
+                            email: _emailController.text,
+                            password: _passwordController.text,
+                          );
+
+                          String data = registrationModelToJson(model);
+                        }
                       },
                       btnHeight: 40.h,
                       btnWidth: width,

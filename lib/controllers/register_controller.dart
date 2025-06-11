@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:get/get.dart';
@@ -7,11 +5,12 @@ import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
 import 'package:my_firstapp/constants/constants.dart';
 import 'package:my_firstapp/models/api_error.dart';
-import 'package:my_firstapp/models/login_response.dart';
+import 'package:my_firstapp/models/registration_model.dart';
+import 'package:my_firstapp/models/success_model.dart';
 import 'package:my_firstapp/views/auth/verification_page.dart';
 import 'package:my_firstapp/views/entrypoint.dart';
 
-class LoginController extends GetxController {
+class RegisterController extends GetxController {
   final box = GetStorage();
   RxBool _isLoading = false.obs;
 
@@ -21,10 +20,10 @@ class LoginController extends GetxController {
     _isLoading.value = newState;
   }
 
-  void loginFunction(String data) async {
+  void registrationFunction(String data) async {
     setLoading = true;
 
-    Uri url = Uri.parse('$appBaseUrl/login');
+    Uri url = Uri.parse('$appBaseUrl/register');
 
     Map<String, String> headers = {'Content-Type': 'application/json'};
 
@@ -35,45 +34,23 @@ class LoginController extends GetxController {
         body: data,
       );
       if (response.statusCode == 200) {
-        var data = loginResponseFromJson(response.body);
-
-        String userId = data.id;
-        String userData = jsonEncode(data);
-
-        box.write(userId, userData);
-        box.write("token", data.usertoken);
-        box.write("userId", data.id);
-        box.write("verification", data.verification);
+        var data = succesModelFromJson(response.body);
 
         setLoading = false;
 
         Get.snackbar(
-          "You are succesfully logged in",
-          "Enjoy your awesomw experience",
+          "You are succesfully registered",
+          data.message,
           colorText: kLightWhite,
           backgroundColor: kPrimary,
           icon: const Icon(Ionicons.fast_food_outline),
-        );
-
-        if (data.verification == false) {
-          Get.offAll(
-            () => const VerificationPage(),
-            transition: Transition.fade,
-            duration: Duration(milliseconds: 900),
-          );
-        }
-
-        Get.offAll(
-          () => MainScreen(),
-          transition: Transition.fade,
-          duration: Duration(milliseconds: 900),
         );
       } else {
         var error = apiErrorFromJson(response.body);
 
         Get.snackbar(
-          "You are succesfully logged in",
-          "Enjoy your awesomw experience",
+          "Failed to register",
+          error.message,
           colorText: kLightWhite,
           backgroundColor: kRed,
           icon: const Icon(Icons.error_outline),
@@ -82,15 +59,5 @@ class LoginController extends GetxController {
     } catch (e) {
       debugPrint(e.toString());
     }
-  }
-
-  void logout() {
-    box.erase();
-
-    Get.offAll(
-      () => MainScreen(),
-      transition: Transition.fade,
-      duration: const Duration(milliseconds: 900),
-    );
   }
 }
