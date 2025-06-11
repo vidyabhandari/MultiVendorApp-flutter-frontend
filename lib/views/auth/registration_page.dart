@@ -9,6 +9,7 @@ import 'package:my_firstapp/common/custom_button.dart';
 import 'package:my_firstapp/common/reusable_text.dart';
 import 'package:my_firstapp/constants/constants.dart';
 import 'package:my_firstapp/views/auth/widget/email_textfield.dart';
+import 'package:my_firstapp/views/auth/widget/password_textfield.dart';
 
 class RegistrationPage extends StatefulWidget {
   const RegistrationPage({super.key});
@@ -19,6 +20,7 @@ class RegistrationPage extends StatefulWidget {
 
 class _RegistrationPageState extends State<RegistrationPage> {
   late final TextEditingController _emailController = TextEditingController();
+  late final TextEditingController _userController = TextEditingController();
   late final TextEditingController _passwordController =
       TextEditingController();
 
@@ -62,6 +64,19 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 child: Column(
                   children: [
                     EmailTextfield(
+                      hintText: "Username",
+                      keyboardType: TextInputType.text,
+                      prefixIcon: const Icon(
+                        CupertinoIcons.profile_circled,
+                        size: 22,
+                        color: kGrayLight,
+                      ),
+                      controller: _userController,
+                    ),
+
+                    SizedBox(height: 25.h),
+
+                    EmailTextfield(
                       hintText: "Email",
                       prefixIcon: const Icon(
                         CupertinoIcons.mail,
@@ -73,21 +88,13 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
                     SizedBox(height: 25.h),
 
-                    EmailTextfield(
-                      hintText: "Password",
-                      prefixIcon: const Icon(
-                        CupertinoIcons.eye,
-                        size: 22,
-                        color: kGrayLight,
-                      ),
-                      controller: _emailController,
-                    ),
+                    PasswordTextfield(controller: _passwordController),
 
-                    SizedBox(height: 10.h),
+                    SizedBox(height: 30.h),
 
                     CustomButton(
                       radius: 0.r,
-                      text: "L O G I N",
+                      text: "R E G I S T E R",
                       onTap: () {
                         Get.to(
                           () => const RegistrationPage(),
@@ -97,29 +104,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
                       },
                       btnHeight: 40.h,
                       btnWidth: width,
-                    ),
-
-                    SizedBox(height: 10.h),
-
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          GestureDetector(
-                            onTap: () {},
-                            child: ReusableText(
-                              text: "Register",
-                              style: appStyle(
-                                12,
-                                Colors.blue,
-                                FontWeight.normal,
-                                0,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
                     ),
                   ],
                 ),
