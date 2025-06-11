@@ -10,6 +10,7 @@ import 'package:my_firstapp/common/reusable_text.dart';
 import 'package:my_firstapp/constants/constants.dart';
 import 'package:my_firstapp/views/auth/registration_page.dart';
 import 'package:my_firstapp/views/auth/widget/email_textfield.dart';
+import 'package:my_firstapp/views/auth/widget/password_textfield.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -74,15 +75,7 @@ class _LoginPageState extends State<LoginPage> {
 
                     SizedBox(height: 25.h),
 
-                    EmailTextfield(
-                      hintText: "Password",
-                      prefixIcon: const Icon(
-                        CupertinoIcons.eye,
-                        size: 22,
-                        color: kGrayLight,
-                      ),
-                      controller: _emailController,
-                    ),
+                    PasswordTextfield(controller: _passwordController),
 
                     SizedBox(height: 10.h),
 
