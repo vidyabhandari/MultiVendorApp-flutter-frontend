@@ -30,6 +30,9 @@ class RegistrationController extends GetxController {
         headers: {'Content-Type': 'application/json'},
         body: data,
       );
+
+      print(response.statusCode);
+
       if (response.statusCode == 200) {
         var data = succesModelFromJson(response.body);
 

@@ -9,7 +9,7 @@ import 'package:my_firstapp/common/back_ground_container.dart';
 import 'package:my_firstapp/common/custom_button.dart';
 import 'package:my_firstapp/common/reusable_text.dart';
 import 'package:my_firstapp/constants/constants.dart';
-import 'package:my_firstapp/controllers/register_controller.dart';
+import 'package:my_firstapp/controllers/registration_controller.dart';
 import 'package:my_firstapp/models/registration_model.dart';
 import 'package:my_firstapp/views/auth/widget/email_textfield.dart';
 import 'package:my_firstapp/views/auth/widget/password_textfield.dart';
