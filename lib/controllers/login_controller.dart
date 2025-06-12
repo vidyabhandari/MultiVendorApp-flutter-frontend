@@ -29,19 +29,19 @@ class LoginController extends GetxController {
     Map<String, String> headers = {'Content-Type': 'application/json'};
 
     try {
-      var response = await http.post(
-        url,
-        headers: {'Content-Type': 'application/json'},
-        body: data,
-      );
+      var response = await http.post(url, headers: headers, body: data);
+
+      print(response.statusCode);
+      print("RESPONSE BODY: ${response.body}");
+
       if (response.statusCode == 200) {
-        var data = loginResponseFromJson(response.body);
+        LoginResponse data = loginResponseFromJson(response.body);
 
         String userId = data.id;
         String userData = jsonEncode(data);
 
         box.write(userId, userData);
-        box.write("token", data.usertoken);
+        box.write("token", data.userToken);
         box.write("userId", data.id);
         box.write("verification", data.verification);
 
@@ -55,25 +55,25 @@ class LoginController extends GetxController {
           icon: const Icon(Ionicons.fast_food_outline),
         );
 
-        if (data.verification == false) {
+        if (data.verification != null && data.verification == false) {
           Get.offAll(
             () => const VerificationPage(),
             transition: Transition.fade,
-            duration: Duration(milliseconds: 900),
+            duration: const Duration(milliseconds: 900),
           );
         }
 
         Get.offAll(
           () => MainScreen(),
           transition: Transition.fade,
-          duration: Duration(milliseconds: 900),
+          duration: const Duration(milliseconds: 900),
         );
       } else {
         var error = apiErrorFromJson(response.body);
 
         Get.snackbar(
-          "You are succesfully logged in",
-          "Enjoy your awesomw experience",
+          "Login Failed",
+          error.message ?? "Something went wrong",
           colorText: kLightWhite,
           backgroundColor: kRed,
           icon: const Icon(Icons.error_outline),

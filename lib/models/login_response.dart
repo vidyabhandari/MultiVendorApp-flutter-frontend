@@ -1,6 +1,7 @@
 // To parse this JSON data, do
 //
 //     final loginResponse = loginResponseFromJson(jsonString);
+
 import 'dart:convert';
 
 LoginResponse loginResponseFromJson(String str) =>
@@ -13,34 +14,37 @@ class LoginResponse {
   final String username;
   final String email;
   final String fcm;
+  final bool? verification;
   final String phone;
-  final bool verification;
+  final bool phoneVerification;
   final String userType;
   final String profile;
-  final String usertoken;
+  final String userToken;
 
   LoginResponse({
     required this.id,
     required this.username,
     required this.email,
     required this.fcm,
+    this.verification,
     required this.phone,
-    required this.verification,
+    required this.phoneVerification,
     required this.userType,
     required this.profile,
-    required this.usertoken,
+    required this.userToken,
   });
 
   factory LoginResponse.fromJson(Map<String, dynamic> json) => LoginResponse(
-    id: json["_id"],
-    username: json["username"],
-    email: json["email"],
-    fcm: json["fcm"],
-    phone: json["phone"],
-    verification: json["verification"],
-    userType: json["userType"],
-    profile: json["profile"],
-    usertoken: json["usertoken"],
+    id: json["_id"] ?? "",
+    username: json["username"] ?? "",
+    email: json["email"] ?? "",
+    fcm: json["fcm"] ?? "",
+    verification: json["verification"] is bool ? json["verification"] : false,
+    phone: json["phone"] ?? "",
+    phoneVerification: json["phoneVerification"] ?? false,
+    userType: json["userType"] ?? "",
+    profile: json["profile"] ?? "",
+    userToken: json["userToken"] ?? "",
   );
 
   Map<String, dynamic> toJson() => {
@@ -48,10 +52,11 @@ class LoginResponse {
     "username": username,
     "email": email,
     "fcm": fcm,
-    "phone": phone,
     "verification": verification,
+    "phone": phone,
+    "phoneVerification": phoneVerification,
     "userType": userType,
     "profile": profile,
-    "usertoken": usertoken,
+    "userToken": userToken,
   };
 }

@@ -8,6 +8,7 @@ import 'package:my_firstapp/common/back_ground_container.dart';
 import 'package:my_firstapp/common/custom_button.dart';
 import 'package:my_firstapp/common/reusable_text.dart';
 import 'package:my_firstapp/constants/constants.dart';
+import 'package:my_firstapp/controllers/login_controller.dart';
 import 'package:my_firstapp/models/login_model.dart';
 import 'package:my_firstapp/views/auth/registration_page.dart';
 import 'package:my_firstapp/views/auth/widget/email_textfield.dart';
@@ -28,14 +29,15 @@ class _LoginPageState extends State<LoginPage> {
   final FocusNode _passwordFocusNode = FocusNode();
   @override
   void dispose() {
-    _passwordFocusNode..dispose();
-    _passwordFocusNode..dispose();
+    _passwordFocusNode.dispose();
+    _passwordFocusNode.dispose();
     _emailController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(LoginController());
     return Scaffold(
       backgroundColor: kPrimary,
       appBar: AppBar(
@@ -94,6 +96,7 @@ class _LoginPageState extends State<LoginPage> {
                           String data = loginModelToJson(model);
 
                           //Login function
+                          controller.loginFunction(data);
                         }
                       },
                       btnHeight: 40.h,

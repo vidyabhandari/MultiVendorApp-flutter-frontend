@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:my_firstapp/common/custom_button.dart';
 import 'package:my_firstapp/common/custom_container.dart';
+import 'package:my_firstapp/controllers/login_controller.dart';
 import 'package:my_firstapp/views/auth/login_redirect.dart';
 import 'package:my_firstapp/views/profile/widget/profile_app_bar.dart';
 import 'package:my_firstapp/constants/constants.dart';
@@ -16,6 +16,7 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(LoginController());
     return Scaffold(
       backgroundColor: kOffWhite,
       appBar: PreferredSize(
@@ -96,7 +97,9 @@ class ProfilePage extends StatelessWidget {
               ),
               SizedBox(height: 20.h),
               CustomButton(
-                onTap: () {},
+                onTap: () {
+                  controller.logout();
+                },
                 btnColor: kRed,
                 radius: 0,
                 text: "Logout",

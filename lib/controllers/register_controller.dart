@@ -5,12 +5,9 @@ import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
 import 'package:my_firstapp/constants/constants.dart';
 import 'package:my_firstapp/models/api_error.dart';
-import 'package:my_firstapp/models/registration_model.dart';
 import 'package:my_firstapp/models/success_model.dart';
-import 'package:my_firstapp/views/auth/verification_page.dart';
-import 'package:my_firstapp/views/entrypoint.dart';
 
-class RegisterController extends GetxController {
+class RegistrationController extends GetxController {
   final box = GetStorage();
   RxBool _isLoading = false.obs;
 
@@ -39,7 +36,7 @@ class RegisterController extends GetxController {
         setLoading = false;
 
         Get.snackbar(
-          "You are succesfully registered",
+          "Registration Successful",
           data.message,
           colorText: kLightWhite,
           backgroundColor: kPrimary,
@@ -49,7 +46,7 @@ class RegisterController extends GetxController {
         var error = apiErrorFromJson(response.body);
 
         Get.snackbar(
-          "Failed to register",
+          "Registration Failed",
           error.message,
           colorText: kLightWhite,
           backgroundColor: kRed,

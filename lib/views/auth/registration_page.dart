@@ -1,13 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/instance_manager.dart';
 import 'package:lottie/lottie.dart';
 import 'package:my_firstapp/common/app_style.dart';
 import 'package:my_firstapp/common/back_ground_container.dart';
 import 'package:my_firstapp/common/custom_button.dart';
 import 'package:my_firstapp/common/reusable_text.dart';
 import 'package:my_firstapp/constants/constants.dart';
+import 'package:my_firstapp/controllers/register_controller.dart';
 import 'package:my_firstapp/models/registration_model.dart';
 import 'package:my_firstapp/views/auth/widget/email_textfield.dart';
 import 'package:my_firstapp/views/auth/widget/password_textfield.dart';
@@ -36,6 +38,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(RegistrationController());
+
     return Scaffold(
       backgroundColor: kPrimary,
       appBar: AppBar(
@@ -107,6 +111,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           );
 
                           String data = registrationModelToJson(model);
+
+                          controller.registrationFunction(data);
                         }
                       },
                       btnHeight: 40.h,
