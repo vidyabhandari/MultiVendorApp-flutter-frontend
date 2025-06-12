@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:my_firstapp/common/custom_button.dart';
 import 'package:my_firstapp/common/custom_container.dart';
 import 'package:my_firstapp/controllers/login_controller.dart';
+import 'package:my_firstapp/models/login_response.dart';
 import 'package:my_firstapp/views/auth/login_redirect.dart';
 import 'package:my_firstapp/views/profile/widget/profile_app_bar.dart';
 import 'package:my_firstapp/constants/constants.dart';
@@ -16,7 +18,21 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    LoginResponse? user;
     final controller = Get.put(LoginController());
+
+    final box = GetStorage();
+
+    String? token = box.read('token');
+
+    if (token != null) {
+      user = controller.getUserInfo();
+    }
+
+    if (token == null) {
+      return const LoginRedirect();
+    }
+    
     return Scaffold(
       backgroundColor: kOffWhite,
       appBar: PreferredSize(
@@ -28,7 +44,7 @@ class ProfilePage extends StatelessWidget {
           color: Colors.white,
           containerContent: Column(
             children: [
-              const UserInfoWidget(),
+              UserInfoWidget(user: user),
               SizedBox(height: 10.h),
               Container(
                 height: 210.h,

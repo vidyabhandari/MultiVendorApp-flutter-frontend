@@ -31,9 +31,6 @@ class LoginController extends GetxController {
     try {
       var response = await http.post(url, headers: headers, body: data);
 
-      print(response.statusCode);
-      print("RESPONSE BODY: ${response.body}");
-
       if (response.statusCode == 200) {
         LoginResponse data = loginResponseFromJson(response.body);
 
@@ -92,5 +89,18 @@ class LoginController extends GetxController {
       transition: Transition.fade,
       duration: const Duration(milliseconds: 900),
     );
+  }
+
+  LoginResponse? getUserInfo() {
+    String? userId = box.read("userId");
+    String? data;
+
+    if (userId != null) {
+      String? data = box.read(userId.toString());
+    }
+    if (data != null) {
+      return loginResponseFromJson(data);
+    }
+    return null;
   }
 }
