@@ -32,14 +32,7 @@ class UserInfoWidget extends StatelessWidget {
                       width: 35.w,
                       child: CircleAvatar(
                         backgroundColor: kGrayLight,
-                        backgroundImage:
-                            user?.profile != null && user!.profile.isNotEmpty
-                                ? NetworkImage(user!.profile)
-                                : null,
-                        child:
-                            user?.profile == null || user!.profile.isEmpty
-                                ? const Icon(Icons.person, color: kGray)
-                                : null,
+                        backgroundImage: NetworkImage(user!.profile),
                       ),
                     ),
                     SizedBox(width: 5.w),
@@ -49,11 +42,11 @@ class UserInfoWidget extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           ReusableText(
-                            text: user?.username ?? "Username",
+                            text: user!.username ?? "Username",
                             style: appStyle(12, kGray, FontWeight.w600, 0),
                           ),
                           ReusableText(
-                            text: user?.email ?? "emaiil@eemail.gsdfjh",
+                            text: user!.email ?? "emaiil@eemail.gsdfjh",
                             style: appStyle(10, kGray, FontWeight.normal, 0),
                           ),
                         ],

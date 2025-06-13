@@ -8,6 +8,7 @@ import 'package:my_firstapp/common/custom_container.dart';
 import 'package:my_firstapp/controllers/login_controller.dart';
 import 'package:my_firstapp/models/login_response.dart';
 import 'package:my_firstapp/views/auth/login_redirect.dart';
+import 'package:my_firstapp/views/auth/verification_page.dart';
 import 'package:my_firstapp/views/profile/widget/profile_app_bar.dart';
 import 'package:my_firstapp/constants/constants.dart';
 import 'package:my_firstapp/views/profile/widget/profile_tile_widget.dart';
@@ -32,7 +33,12 @@ class ProfilePage extends StatelessWidget {
     if (token == null) {
       return const LoginRedirect();
     }
-    
+
+    if (user != null && user.verification == false) {
+      return const VerificationPage();
+    }
+    print("USER OBJECT: ${user?.toJson()}");
+
     return Scaffold(
       backgroundColor: kOffWhite,
       appBar: PreferredSize(
@@ -45,6 +51,7 @@ class ProfilePage extends StatelessWidget {
           containerContent: Column(
             children: [
               UserInfoWidget(user: user),
+
               SizedBox(height: 10.h),
               Container(
                 height: 210.h,

@@ -42,17 +42,20 @@ class LoginController extends GetxController {
         box.write("userId", data.id);
         box.write("verification", data.verification);
 
+        print("USERNAME: ${data.username}");
+        print("EMAIL: ${data.email}");
+
         setLoading = false;
 
         Get.snackbar(
-          "You are succesfully logged in",
-          "Enjoy your awesomw experience",
+          "You are succefully logged in",
+          "Enjoy your awesome experience",
           colorText: kLightWhite,
           backgroundColor: kPrimary,
           icon: const Icon(Ionicons.fast_food_outline),
         );
 
-        if (data.verification != null && data.verification == false) {
+        if (data.verification == false) {
           Get.offAll(
             () => const VerificationPage(),
             transition: Transition.fade,
@@ -60,17 +63,19 @@ class LoginController extends GetxController {
           );
         }
 
-        Get.offAll(
-          () => MainScreen(),
-          transition: Transition.fade,
-          duration: const Duration(milliseconds: 900),
-        );
+        if (data.verification == true) {
+          Get.offAll(
+            () => MainScreen(),
+            transition: Transition.fade,
+            duration: const Duration(milliseconds: 900),
+          );
+        }
       } else {
         var error = apiErrorFromJson(response.body);
 
         Get.snackbar(
-          "Login Failed",
-          error.message ?? "Something went wrong",
+          "Failed to login",
+          error.message,
           colorText: kLightWhite,
           backgroundColor: kRed,
           icon: const Icon(Icons.error_outline),
@@ -83,7 +88,6 @@ class LoginController extends GetxController {
 
   void logout() {
     box.erase();
-
     Get.offAll(
       () => MainScreen(),
       transition: Transition.fade,
@@ -94,10 +98,10 @@ class LoginController extends GetxController {
   LoginResponse? getUserInfo() {
     String? userId = box.read("userId");
     String? data;
-
     if (userId != null) {
-      String? data = box.read(userId.toString());
+      data = box.read(userId.toString());
     }
+
     if (data != null) {
       return loginResponseFromJson(data);
     }
