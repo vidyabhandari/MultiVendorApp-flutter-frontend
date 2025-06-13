@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:my_firstapp/common/app_style.dart';
+import 'package:my_firstapp/common/custom_button.dart';
 import 'package:my_firstapp/common/custom_container.dart';
 import 'package:my_firstapp/common/reusable_text.dart';
 import 'package:my_firstapp/constants/constants.dart';
+// ignore: depend_on_referenced_packages
+import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
 class VerificationPage extends StatelessWidget {
   const VerificationPage({super.key});
@@ -49,6 +52,27 @@ class VerificationPage extends StatelessWidget {
                 ),
 
                 SizedBox(height: 20.h),
+                OtpTextField(
+                  numberOfFields: 6,
+                  borderColor: kPrimary,
+                  borderWidth: 2.0,
+                  textStyle: appStyle(17, kDark, FontWeight.w600, 0),
+                  onCodeChanged: (String code) {},
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  onSubmit: (String verificationCode) {
+                    print(verificationCode);
+                  },
+                ),
+
+                SizedBox(height: 20.h),
+
+                CustomButton(
+                  radius: 0.r,
+                  text: "V E R I F Y  A C C O U N T",
+                  onTap: () {},
+                  btnHeight: 35.h,
+                  btnWidth: width,
+                ),
               ],
             ),
           ),
