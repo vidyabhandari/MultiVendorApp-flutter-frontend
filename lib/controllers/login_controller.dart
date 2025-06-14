@@ -42,9 +42,6 @@ class LoginController extends GetxController {
         box.write("userId", data.id);
         box.write("verification", data.verification);
 
-        print("USERNAME: ${data.username}");
-        print("EMAIL: ${data.email}");
-
         setLoading = false;
 
         Get.snackbar(

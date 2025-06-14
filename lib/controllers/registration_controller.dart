@@ -25,21 +25,17 @@ class RegistrationController extends GetxController {
     Map<String, String> headers = {'Content-Type': 'application/json'};
 
     try {
-      var response = await http.post(
-        url,
-        headers: {'Content-Type': 'application/json'},
-        body: data,
-      );
+      var response = await http.post(url, headers: headers, body: data);
 
-      print(response.statusCode);
-
-      if (response.statusCode == 200) {
-        var data = succesModelFromJson(response.body);
+      if (response.statusCode == 201) {
+        var data = successModelFromJson(response.body);
 
         setLoading = false;
 
+        Get.back();
+
         Get.snackbar(
-          "Registration Successful",
+          "You are succefully registered",
           data.message,
           colorText: kLightWhite,
           backgroundColor: kPrimary,
@@ -49,7 +45,7 @@ class RegistrationController extends GetxController {
         var error = apiErrorFromJson(response.body);
 
         Get.snackbar(
-          "Registration Failed",
+          "Failed to register",
           error.message,
           colorText: kLightWhite,
           backgroundColor: kRed,

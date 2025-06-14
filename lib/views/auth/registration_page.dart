@@ -98,7 +98,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     SizedBox(height: 30.h),
 
                     CustomButton(
-                      radius: 0.r,
                       text: "R E G I S T E R",
                       onTap: () {
                         if (_emailController.text.isNotEmpty &&
@@ -115,8 +114,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           controller.registrationFunction(data);
                         }
                       },
-                      btnHeight: 40.h,
+                      btnHeight: 35.h,
                       btnWidth: width,
+                      radius: 0,
                     ),
                   ],
                 ),

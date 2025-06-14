@@ -4,19 +4,19 @@
 
 import 'dart:convert';
 
-SuccesModel succesModelFromJson(String str) =>
-    SuccesModel.fromJson(json.decode(str));
+SuccessModel successModelFromJson(String str) =>
+    SuccessModel.fromJson(json.decode(str));
 
-String succesModelToJson(SuccesModel data) => json.encode(data.toJson());
+String successModelToJson(SuccessModel data) => json.encode(data.toJson());
 
-class SuccesModel {
+class SuccessModel {
   final bool status;
   final String message;
 
-  SuccesModel({required this.status, required this.message});
+  SuccessModel({required this.status, required this.message});
 
-  factory SuccesModel.fromJson(Map<String, dynamic> json) =>
-      SuccesModel(status: json["status"], message: json["message"]);
+  factory SuccessModel.fromJson(Map<String, dynamic> json) =>
+      SuccessModel(status: json["status"], message: json["message"]);
 
   Map<String, dynamic> toJson() => {"status": status, "message": message};
 }

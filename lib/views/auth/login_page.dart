@@ -27,10 +27,11 @@ class _LoginPageState extends State<LoginPage> {
       TextEditingController();
 
   final FocusNode _passwordFocusNode = FocusNode();
+
   @override
   void dispose() {
     _passwordFocusNode.dispose();
-    _passwordFocusNode.dispose();
+    _passwordController.dispose();
     _emailController.dispose();
     super.dispose();
   }
@@ -38,6 +39,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(LoginController());
+
     return Scaffold(
       backgroundColor: kPrimary,
       appBar: AppBar(
@@ -45,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
         backgroundColor: kPrimary,
         title: Center(
           child: ReusableText(
-            text: "Foodly Foods",
+            text: "Foodly Family",
             style: appStyle(20, kLightWhite, FontWeight.bold, 0),
           ),
         ),
@@ -75,36 +77,8 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       controller: _emailController,
                     ),
-
                     SizedBox(height: 25.h),
-
                     PasswordTextfield(controller: _passwordController),
-
-                    SizedBox(height: 10.h),
-
-                    CustomButton(
-                      radius: 0.r,
-                      text: "L O G I N",
-                      onTap: () {
-                        if (_emailController.text.isNotEmpty &&
-                            _passwordController.text.length >= 8) {
-                          LoginModel model = LoginModel(
-                            email: _emailController.text,
-                            password: _passwordController.text,
-                          );
-
-                          String data = loginModelToJson(model);
-
-                          //Login function
-                          controller.loginFunction(data);
-                        }
-                      },
-                      btnHeight: 40.h,
-                      btnWidth: width,
-                    ),
-
-                    SizedBox(height: 10.h),
-
                     Padding(
                       padding: const EdgeInsets.only(top: 8.0),
                       child: Row(
@@ -115,7 +89,7 @@ class _LoginPageState extends State<LoginPage> {
                               Get.to(
                                 () => const RegistrationPage(),
                                 transition: Transition.fadeIn,
-                                duration: const Duration(seconds: 3),
+                                duration: const Duration(milliseconds: 1200),
                               );
                             },
                             child: ReusableText(
@@ -130,6 +104,26 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ],
                       ),
+                    ),
+                    SizedBox(height: 30.h),
+                    CustomButton(
+                      text: "L O G I N",
+                      onTap: () {
+                        if (_emailController.text.isNotEmpty &&
+                            _passwordController.text.length >= 8) {
+                          LoginModel model = LoginModel(
+                            email: _emailController.text,
+                            password: _passwordController.text,
+                          );
+
+                          String data = loginModelToJson(model);
+
+                          controller.loginFunction(data);
+                        }
+                      },
+                      btnHeight: 35.h,
+                      btnWidth: width,
+                      radius: 0,
                     ),
                   ],
                 ),
