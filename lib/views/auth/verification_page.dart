@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/instance_manager.dart';
 import 'package:lottie/lottie.dart';
 import 'package:my_firstapp/common/app_style.dart';
 import 'package:my_firstapp/common/custom_button.dart';
@@ -8,12 +9,14 @@ import 'package:my_firstapp/common/reusable_text.dart';
 import 'package:my_firstapp/constants/constants.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:my_firstapp/controllers/verification_controller.dart';
 
 class VerificationPage extends StatelessWidget {
   const VerificationPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(VerificationController());
     return Scaffold(
       backgroundColor: kPrimary,
       appBar: AppBar(
@@ -60,7 +63,7 @@ class VerificationPage extends StatelessWidget {
                   onCodeChanged: (String code) {},
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   onSubmit: (String verificationCode) {
-                    print(verificationCode);
+                    controller.setCode = verificationCode;
                   },
                 ),
 
@@ -69,7 +72,9 @@ class VerificationPage extends StatelessWidget {
                 CustomButton(
                   radius: 0.r,
                   text: "V E R I F Y  A C C O U N T",
-                  onTap: () {},
+                  onTap: () {
+                    controller.verificationFunction();
+                  },
                   btnHeight: 35.h,
                   btnWidth: width,
                 ),
