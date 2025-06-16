@@ -3,10 +3,20 @@ import 'package:get/get.dart';
 import 'package:my_firstapp/common/app_style.dart';
 import 'package:my_firstapp/constants/constants.dart';
 import 'package:my_firstapp/controllers/phone_verification_controller.dart';
+import 'package:my_firstapp/services/verification_servies.dart';
 import 'package:phone_otp_verification/phone_verification.dart';
 
-class PhoneVerificationPage extends StatelessWidget {
+class PhoneVerificationPage extends StatefulWidget {
   const PhoneVerificationPage({super.key});
+
+  @override
+  State<PhoneVerificationPage> createState() => _PhoneVerificationPageState();
+}
+
+class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
+  VerificationServies _verificationService = VerificationServies();
+
+  String _verificationId = '';
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +34,19 @@ class PhoneVerificationPage extends StatelessWidget {
       },
       onVerification: (String value) {
         print('OTP: $value');
+      },
+    );
+  }
+
+  void _verifyPhoneNumber(String phoneNumber) async {
+    final controller = Get.put(PhoneVerificationController());
+
+    await _verificationService.verifyPhoneNumber(
+      controller.phone,
+      codeSent: (String verificationId, int? resendToken) {
+        setState(() {
+          _verificationId = verificationId;
+        });
       },
     );
   }
