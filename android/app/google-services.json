@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "259004684776",
+    "project_id": "foddly-flutter",
+    "storage_bucket": "foddly-flutter.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:259004684776:android:ce2cd1e8dc397fb37bac5d",
+        "android_client_info": {
+          "package_name": "com.example.my_firstapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "259004684776-32ltj7is9m0vc4q9oqcfcji6cjb8fdm1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaoMh-t1lt3n3ZHMUHPbwAg2tp7quafZM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "259004684776-32ltj7is9m0vc4q9oqcfcji6cjb8fdm1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "259004684776-s4h2bblotkuvbhmejf8f7s5dlrr94vb8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.myFirstapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
