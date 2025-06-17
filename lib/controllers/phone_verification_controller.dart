@@ -2,11 +2,15 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
+import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
 import 'package:my_firstapp/constants/constants.dart';
 import 'package:my_firstapp/models/api_error.dart';
 import 'package:my_firstapp/models/login_response.dart';
+import 'package:my_firstapp/views/entrypoint.dart';
 
 class PhoneVerificationController extends GetxController {
   final box = GetStorage();
@@ -17,10 +21,8 @@ class PhoneVerificationController extends GetxController {
 
   set setPhoneNumber(String value) {
     _phone = value;
-    print(phone);
   }
 
-  //loading
   RxBool _isLoading = false.obs;
 
   bool get isLoading => _isLoading.value;
@@ -43,6 +45,7 @@ class PhoneVerificationController extends GetxController {
     try {
       var response = await http.get(url, headers: headers);
 
+      print(response.statusCode);
       if (response.statusCode == 200) {
         LoginResponse data = loginResponseFromJson(response.body);
 
@@ -54,8 +57,6 @@ class PhoneVerificationController extends GetxController {
         box.write("userId", data.id);
         box.write("verification", data.verification);
 
-        setLoading = false;
-
         Get.snackbar(
           "You are succefully verified",
           "Enjoy your awesome experience",
@@ -64,12 +65,13 @@ class PhoneVerificationController extends GetxController {
           icon: const Icon(Ionicons.fast_food_outline),
         );
 
-        Get.back();
+        Get.offAll(() => MainScreen());
+        setLoading = false;
       } else {
         var error = apiErrorFromJson(response.body);
 
         Get.snackbar(
-          "Failed to verify accout",
+          "Failed to verify account",
           error.message,
           colorText: kLightWhite,
           backgroundColor: kRed,

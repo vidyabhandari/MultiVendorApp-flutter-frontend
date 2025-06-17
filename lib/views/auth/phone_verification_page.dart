@@ -14,27 +14,43 @@ class PhoneVerificationPage extends StatefulWidget {
 }
 
 class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
-  VerificationServies _verificationService = VerificationServies();
+  VerificationServices _verificationService = VerificationServices();
 
   String _verificationId = '';
 
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(PhoneVerificationController());
-    return PhoneVerification(
-      isFirstPage: false,
-      enableLogo: false,
-      themeColor: kPrimary,
-      backgroundColor: kLightWhite,
-      initialPageText: "Verify Phone Number",
-      initialPageTextStyle: appStyle(20, kPrimary, FontWeight.bold, 0),
-      textColor: kDark,
-      onSend: (String value) {
-        controller.setPhoneNumber = value;
-      },
-      onVerification: (String value) {
-        print('OTP: $value');
-      },
+    return Obx(
+      () =>
+          controller.isLoading == false
+              ? PhoneVerification(
+                isFirstPage: false,
+                enableLogo: false,
+                themeColor: kPrimary,
+                backgroundColor: kLightWhite,
+                initialPageText: "Verify Phone Number",
+                initialPageTextStyle: appStyle(
+                  20,
+                  kPrimary,
+                  FontWeight.bold,
+                  0,
+                ),
+                textColor: kDark,
+                onSend: (String value) {
+                  controller.setPhoneNumber = value;
+                  _verifyPhoneNumber(value);
+                },
+                onVerification: (String value) {
+                  _submitVerificationCode(value);
+                },
+              )
+              : Container(
+                color: kLightWhite,
+                width: width,
+                height: hieght,
+                child: const Center(child: CircularProgressIndicator()),
+              ),
     );
   }
 
@@ -49,5 +65,9 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
         });
       },
     );
+  }
+
+  void _submitVerificationCode(String code) async {
+    await _verificationService.verifySmsCode(_verificationId, code);
   }
 }
